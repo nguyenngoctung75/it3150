@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Say Truyen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&sunset=vietnamese" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    {{!-- <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.6.0-web/css/all.min.css"> --}}
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+    <div class="app">
+        {{> header}}
+
+        
+        {{{body}}}
+        
+
+        {{> footer}}
+    </div>
+
+    <!-- Hiển thị phần subnav -->
+    <script>
+       // Lấy tất cả các phần tử có class js-subnav
+        const subnavItems = document.querySelectorAll('.js-subnav');
+
+        // Thêm sự kiện click vào từng phần tử
+        subnavItems.forEach((subnavItem) => {
+            const dropdownContent = subnavItem.querySelector('.js-subnav-content');
+            const dropdownLink = subnavItem.querySelector('.js-subnav-link');
+
+            // Khi click vào phần tử js-subnav
+            subnavItem.addEventListener('click', (event) => {
+                // Ngăn chặn hành vi mặc định của thẻ <a>
+                event.preventDefault();
+
+                // Đóng tất cả các menu khác trước khi mở
+                document.querySelectorAll('.js-subnav-content').forEach((content) => {
+                    if (content !== dropdownContent) {
+                        content.classList.remove('show');
+                    }
+                });
+
+                document.querySelectorAll('.js-subnav-link').forEach((link) => {
+                    if (link !== dropdownLink) {
+                        link.classList.remove('show');
+                    }
+                });
+
+                // Toggle class show cho menu liên quan
+                dropdownLink.classList.toggle('show');
+                dropdownContent.classList.toggle('show');
+
+                // Ngăn sự kiện lan ra document
+                event.stopPropagation();
+            });
+        });
+
+        // Lắng nghe sự kiện click trên document
+        document.addEventListener('click', () => {
+            // Đóng tất cả các menu dropdown
+            document.querySelectorAll('.js-subnav-content').forEach((content) => {
+                content.classList.remove('show');
+            });
+
+            document.querySelectorAll('.js-subnav-link').forEach((link) => {
+                link.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>
