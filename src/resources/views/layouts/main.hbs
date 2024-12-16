@@ -74,5 +74,16 @@
             });
         });
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const items = document.querySelectorAll('.dropdown-item');
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    window.location.href = '/category';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
