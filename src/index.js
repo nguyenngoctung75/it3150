@@ -59,15 +59,18 @@ app.get('/story-create', (req, res) => {
 })
 
 app.post('/story-store', (req, res) => {
+    let statusText = req.body.status == 1 ? 'Hoàn Thành' : 'Đang ra'
     const formData = {
         name: req.body.name,
         author: req.body.author,
         image: req.body.image || 'http://example.com/coverimage.jpg', // Giá trị mặc định nếu không có ảnh
         description: req.body.description,
-        type: 'Tiên Hiệp', // Lấy thể loại hoặc đặt giá trị mặc định
-        status: 'Đang ra', // Trạng thái mặc định
+        type: req.body.type,
+        status: statusText,
     };
     //console.log(formData)
+    console.log(formData.status)
+    console.log(formData.type)
     const countStoriesSql = 'SELECT COUNT(*) as count FROM story'
     db.query(countStoriesSql, (countErr, countData) => {
         //console.log(countData)
