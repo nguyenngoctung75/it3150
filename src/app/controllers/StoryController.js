@@ -1,7 +1,12 @@
 class StoryController {
     // [Get /story]
     show(req, res) {
-        res.render('story')
+        res.render('story/story')
+    }
+
+    // [Get] /story/create
+    create(req, res) {
+        res.render('story/create')
     }
 }
 

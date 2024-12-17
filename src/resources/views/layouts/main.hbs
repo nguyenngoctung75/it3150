@@ -78,12 +78,15 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const items = document.querySelectorAll('.dropdown-item');
+            
             items.forEach(item => {
+                const hrefValue = item.getAttribute('href');
                 item.addEventListener('click', () => {
-                    window.location.href = '/category';
+                    window.location.href = hrefValue;
                 });
             });
         });
     </script>
+
 </body>
 </html>
