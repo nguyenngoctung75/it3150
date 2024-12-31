@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Sửa Thông Tin Truyện</h2>
+    <form action="/story-edit?storyId={{story.story_id}}" method="POST" class="row g-3">
+        <div class="col-md-6">
+            <label for="name" class="form-label">Tên Truyện</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{story.name}}" required>
+        </div>
+        <div class="col-md-6">
+            <label for="author" class="form-label">Tác Giả</label>
+            <input type="text" class="form-control" id="author" name="author" value="{{story.author}}" required>
+        </div>
+        <div class="col-md-6">
+            <label for="type" class="form-label">Thể Loại</label>
+            <input type="text" class="form-control" id="type" name="type" value="{{story.type}}" required>
+        </div>
+        <div class="col-md-6">
+            <label for="status" class="form-label">Trạng Thái</label>
+            <select class="form-select" id="status" name="status" required>
+                <option selected>Open this select menu</option>
+                <option value="Hoàn Thành">Hoàn Thành</option>
+                <option value="Đang ra">Đang ra</option>
+            </select>
+        </div>
+        <div class="col-md-12">
+            <label for="image" class="form-label">URL Hình Ảnh</label>
+            <input type="url" class="form-control" id="image" name="image" value="{{story.image}}" required>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
+            <a href="/story-list" class="btn btn-secondary">Hủy</a>
+        </div>
+    </form>
+</div>

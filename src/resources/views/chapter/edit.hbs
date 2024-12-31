@@ -1,0 +1,15 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Sửa Chương</h2>
+    <form action="/chapter-edit?chapterId={{chapter.chapter_id}}&storyId={{chapter.story_id}}" method="POST">
+        <div class="mb-3">
+            <label for="name_chap" class="form-label">Tên Chương</label>
+            <input type="text" class="form-control" id="name_chap" name="name_chap" value="{{chapter.name_chap}}" required>
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Nội Dung</label>
+            <textarea class="form-control" id="content" name="content" rows="10" required>{{chapter.content}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
+        <a href="/story-detail-edit?storyId={{chapter.story_id}}" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>

@@ -8,6 +8,10 @@ class StoryController {
     create(req, res) {
         res.render('story/create')
     }
+
+    store(req, res) {
+        res.json(req.body)
+    }
 }
 
 module.exports = new StoryController()

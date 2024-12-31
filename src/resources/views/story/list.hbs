@@ -1,177 +1,44 @@
 <main>
-    {{!-- <input type="hidden" id="story_slug" value="Kiem-Lai"> --}}
     <div class="container">
         <div class="row align-items-start">
             <div class="col-12 col-md-7 col-lg-8">
-                <div class="head-title-global d-flex justify-content-between mb-4">
-                    <div class="head-title-global__left d-flex col-12 col-md-12 col-lg-4">
-                        <h2 class="me-2 mb-0 border-bottom border-secondary pb-1">
-                            <span class="title-head-name d-block text-decoration-none text-dark fs-4"
-                                title="Thông tin truyện">
-                                Thông tin truyện
-                            </span>
-                        </h2>
-                    </div>
-                </div>
-                <div class="story-detail">
-                    <div class="story-detail__top d-flex align-items-start">
-                        <div class="row align-items-start">
-                            <div class="col-12 col-md-12 col-lg-3 story-detail__top--image">
-                                <div class="book-3d">
-                                    <img src="{{story.image}}" alt="{{story.name}}" class="img-fluid w-100"
-                                        width="300" height="200" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-12 col-lg-9">
-                                <h3 class="story-name text center">{{story.name}}</h3>
-                                <div class="rate-story mb-2">
-                                    <div class="rate-story__holder" data-score="8.3">
-                                        <img alt="1" src="img/star-on.png">
-                                        <img alt="2" src="img/star-on.png">
-                                        <img alt="3" src="img/star-on.png">
-                                        <img alt="4" src="img/star-on.png">
-                                        <img alt="5" src="img/star-on.png">
-                                        <img alt="6" src="img/star-on.png">
-                                        <img alt="7" src="img/star-on.png">
-                                        <img alt="8" src="img/star-half.png">
-                                        <img alt="9" src="img/star-off.png">
-                                        <img alt="10" src="img/star-off.png">
-                                    </div>
-                                    <em class="rate-story__text"></em>
-                                    <div class="rate-story__value" itemprop="aggregateRating" itemscope=""
-                                        itemtype="https://schema.org/AggregateRating">
-                                        <em>
-                                            Đánh giá:
-                                            <strong>
-                                                <span itemprop="ratingValue">8.3</span>
-                                            </strong>
-                                            /
-                                            <span class="" itemprop="bestRating">10</span>
-                                            từ
-                                            <strong>
-                                                <span itemprop="ratingCount">415</span>
-                                                lượt
-                                            </strong>
-                                        </em>
-                                    </div>
-                                </div>
-                                <div class="story-detail__top--desc show-full px-3" style="max-height: 285px;">
-                                    <p>
-                                        {{story.description}}
-                                    </p>
-                                </div>
-
-                                <div class="info-more">
-                                    <div class="info-more--more" id="info_more">
-                                        <span class="me-1 text-dark">Xem Thêm</span>
-                                        <svg width="14" height="8" viewBox="0 0 14 8" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.70749 7.70718L13.7059 1.71002C14.336 1.08008 13.8899 0.00283241 12.9989 0.00283241L1.002 0.00283241C0.111048 0.00283241 -0.335095 1.08008 0.294974 1.71002L6.29343 7.70718C6.68394 8.09761 7.31699 8.09761 7.70749 7.70718Z"
-                                                fill="#2C2C37">
-                                            </path>
-                                        </svg>
-                                    </div>
-
-                                    <a href="story.html#info_more"
-                                        class="info-more--collapse text-decoration-none active">
-                                        <span class="me-1 text-dark">Thu gọn</span>
-                                        <svg width="14" height="8" viewBox="0 0 14 8" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.70749 0.292817L13.7059 6.28998C14.336 6.91992 13.8899 7.99717 12.9989 7.99717L1.002 7.99717C0.111048 7.99717 -0.335095 6.91992 0.294974 6.28998L6.29343 0.292817C6.68394 -0.097606 7.31699 -0.0976055 7.70749 0.292817Z"
-                                                fill="#2C2C37">
-                                            </path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="story-detail__bottom mb-3">
-                        <div class="row">
-                            <div class="story-detail__bottom--info col-12 col-md-12 col-lg-3">
-                                <p class="mb-1">
-                                    <strong>Tác giả: </strong>
-                                    <a href="#" class="text-decoration-none text-dark hover-title">{{story.author}}</a>
-                                </p>
-                                <div class="d-flex align-items-center mb-1 flex-wrap">
-                                    <strong class="me-1">Thể loại:</strong>
-                                    <div class="d-flex align-items-center flex-wrap">
-                                        <a href="category.html" class="text-decoration-none text-dark hover-title me-1"
-                                            style="width: max-content;">{{story.type}},</a>
-                                    </div>
-                                </div>
-                                <p class="mb-1">
-                                    <strong>Trạng thái:</strong>
-                                    <span class="text-info">{{story.status}}</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="story-detail__list-chapter">
+                <div class="mb-3">
+                    <div class="row">
                         <div class="head-title-global d-flex justify-content-between mb-4">
-                            <div class="col-6 col-md-12 col-lg-4 head-title-global__left d-flex">
+                            <div class="head-title-global__left d-flex col-12 col-md-12 col-lg-4">
                                 <h2 class="me-2 mb-0 border-bottom border-secondary pb-1">
-                                    <span href="#" class="d-block text-decoration-none text-dark fs-4 title-head-name"
-                                        title="Truyện hot">Danh sách chương</span>
+                                    <span class="title-head-name d-block text-decoration-none text-dark fs-4"
+                                        title="Danh sách truyện">
+                                        Danh sách truyện
+                                    </span>
                                 </h2>
                             </div>
                         </div>
-
-                        <div class="story-detail__list-chapter--list">
-                            <div class="row">
-                                <div class="col-12 col-sm-6 col-lg-6 story-detail__list-chapter--list__item">
-                                    <ul>
-                                        {{#each chapters}}
-                                        <li>
-                                            <a href="/chapter-show?chapterId={{this.chapter_id}}" class="text-decoration-none text-dark hover-title"
-                                                style="font-size: 0.9rem;">Chương {{this.num_chap}}: {{this.name_chap}}</a>
-                                        </li>
-                                        {{/each}}
-                                    </ul>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="story-list d-flex flex-column">
+                                {{#each stories}}
+                                <div class="d-flex mb-2">
+                                    <img src="{{this.image}}" alt="{{this.name}}" style="max-width: 100px; max-height: 100px;">
+                                    <div class="card-body" style="margin-left: 10px;">
+                                        <h5 class="card-title">
+                                            <a href="/story-show?storyId={{this.story_id}}"
+                                                class="text-decoration-none text-dark">
+                                                {{this.name}}
+                                            </a>
+                                        </h5>
+                                        <div class="card-text"><strong>Tác giả:</strong> {{this.author}}</div>
+                                        <div class="card-text"><strong>Thể loại:</strong> {{this.type}}</div>
+                                        <div class="card-text"><strong>Trạng thái:</strong> {{this.status}}</div>
+                                    </div>
                                 </div>
+                                {{/each}}
                             </div>
                         </div>
                     </div>
-
-                    <div class="pagination" style="justify-content: center;">
-                        <ul>
-                            <li class="pagination__item page-current">
-                                <a href="" class="page-link story-ajax-paginate" data-url=""
-                                    style="cursor: pointer;">1</a>
-                            </li>
-                            <li class="pagination__item">
-                                <a href="" class="page-link story-ajax-paginate" data-url=""
-                                    style="cursor: pointer;">2</a>
-                            </li>
-
-                            <div class="dropup-center dropup choose-paginate me-1">
-                                <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Chọn trang
-                                </button>
-
-                                <div class="dropdown-menu">
-                                    <input type="number" class="form-control input-paginate me-1" value="">
-                                    <button class="btn btn-success btn-go-paginate">Đi</button>
-                                </div>
-                            </div>
-
-                            <li class="pagination__arrow pagination__item">
-                                <a href=""
-                                    class="text-decoration-none w-100 h-100 d-flex justify-content-center align-items-center story-ajax-paginate"
-                                    data-url="" style="cursor: pointer;">
-                                    &gt;&gt;
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
-
             <div class="col-12 col-md-5 col-lg-4 sticky-md-top">
                 <div class="row top-ratings">
                     <div class="col-12 top-ratings__tab mb-2">

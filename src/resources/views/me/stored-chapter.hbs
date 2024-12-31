@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Danh Sách Chương</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Tên Chương</th>
+                <th>Thời Gian Tạo</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each chapters}}
+            <tr>
+                <td>{{this.num_chap}}</td>
+                <td>{{this.name_chap}}</td>
+                <td>{{this.created_at}}</td>
+                <td>
+                    <a href="/chapter-edit?chapterId={{this.chapter_id}}" class="btn btn-warning btn-sm">Sửa</a>
+                    <form action="/chapter-delete/{{this.chapter_id}}" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <a href="/story-list" class="btn btn-secondary">Quay lại danh sách truyện</a>
+</div>

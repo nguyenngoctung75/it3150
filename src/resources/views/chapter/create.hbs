@@ -1,0 +1,31 @@
+<main>
+    <div class="container bg-light mt-5 p-4 rounded">
+        <h3 class="mb-4">Đăng chương truyện: {{storyName}}</h3>
+        <form method="POST" action="/chapter-store">
+            <!-- Input Story ID (ẩn) -->
+            <input type="hidden" name="storyId" value="{{storyId}}">
+
+            <!-- Chương Thứ -->
+            <div class="form-group">
+                <label for="number"><strong>Chương thứ:</strong></label>
+                <input type="text" class="form-control" id="number" name="number" value="{{chapterNumber}}" readonly>
+            </div>
+
+            <!-- Tên Chương -->
+            <div class="form-group mt-3">
+                <label for="name"><strong>Tên chương:</strong></label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên chương" required>
+            </div>
+
+            <!-- Mô Tả -->
+            <div class="form-group mt-3">
+                <label for="description"><strong>Nội dung:</strong></label>
+                <textarea class="form-control" id="content" name="content" rows="3"
+                    placeholder="Nhập nội dung" required></textarea>
+            </div>
+
+            <!-- Nút Đăng -->
+            <button type="submit" class="btn btn-primary mt-4">Đăng chương</button>
+        </form>
+    </div>
+</main>

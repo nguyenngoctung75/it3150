@@ -1,0 +1,36 @@
+<div class="container mt-4">
+    <h1 class="mb-4">Danh sách truyện đã đăng</h1>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Tên truyện</th>
+                <th>Tác giả</th>
+                <th>Thể loại</th>
+                <th>Trạng thái</th>
+                <th>Hình ảnh</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each stories}}
+            <tr>
+                <td>{{story_id}}</td>
+                <td>{{name}}</td>
+                <td>{{author}}</td>
+                <td>{{type}}</td>
+                <td>{{status}}</td>
+                <td>
+                    <img src="{{image}}" alt="Hình ảnh" style="max-width: 100px; max-height: 100px;">
+                </td>
+                <td class="d-flex flex-column">
+                    <a href="/chapter-create?storyId={{story_id}}" class="btn btn-primary btn-sm">Thêm Chương</a>
+                    <a href="/story-edit?storyId={{story_id}}" class="btn btn-warning btn-sm">Sửa truyện</a>
+                    <a href="/story-delete?storyId={{story_id}}" class="btn btn-success btn-sm">Xóa truyện </a>
+                    <a href="/story-detail-edit?storyId={{story_id}}" class="btn btn-info btn-sm">Chi tiết </a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
