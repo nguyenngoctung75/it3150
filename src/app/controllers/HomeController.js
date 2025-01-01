@@ -1,7 +1,7 @@
 class HomeController {
     //[Get /]
     show(req, res) {
-        res.render('home')
+        res.render('home', { layout: 'main', showHeader: true })
     }
 }
 

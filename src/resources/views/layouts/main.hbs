@@ -16,7 +16,9 @@
 </head>
 <body>
     <div class="app">
-        {{> header}}
+        {{#if showHeader}}
+            {{> header}}
+        {{/if}}
 
         
         {{{body}}}

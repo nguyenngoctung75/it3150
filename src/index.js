@@ -54,7 +54,7 @@ const generateStoryId = (storyCount) => {
     return `S${storyIdNumber.toString().padStart(3, '0')}`;
 };
 app.get('/story-create', (req, res) => {
-    res.render('story/create')
+    res.render('story/create' , { layout: 'main', showHeader: true })
 })
 
 app.post('/story-store', (req, res) => {
@@ -103,7 +103,7 @@ app.get('/me-stored-story', (req, res) => {
             console.error(err);
             return res.status(500).json({ message: "Lỗi server" });
         }
-        res.render('./me/stored-story', { stories: result })
+        res.render('./me/stored-story', { stories: result , layout: 'main', showHeader: true})
     })
 })
 
@@ -114,7 +114,7 @@ app.get('/story-list', (req, res) => {
             console.error(err);
             return res.status(500).json({ message: "Lỗi server" });
         }
-        res.render('./story/list', { stories: result })
+        res.render('./story/list', { stories: result , layout: 'main', showHeader: true })
     })
 })
 
@@ -138,7 +138,8 @@ app.get('/story-show', (req, res) => {
 
             res.render('./story/show', { 
                 story: storyResult[0], 
-                chapters: chaptersResult 
+                chapters: chaptersResult,
+                layout: 'main', showHeader: true
             });
         });
     });
@@ -158,7 +159,7 @@ app.get('/story-edit', (req, res) => {
             return res.status(404).json({ message: "Truyện không tồn tại" });
         }
 
-        res.render('./story/edit', { story: result[0] });
+        res.render('./story/edit', { story: result[0] , layout: 'main', showHeader: true});
     });
 });
 
@@ -174,7 +175,7 @@ app.get('/story-detail-edit', (req, res) => {
         if (result.length === 0) {
             return res.status(404).json({ message: "Truyện chưa có chương" });
         }
-        res.render('./me/stored-chapter', { storyId, chapters: result });
+        res.render('./me/stored-chapter', { storyId, chapters: result , layout: 'main', showHeader: true});
     });
 });
 
@@ -215,7 +216,7 @@ app.get('/chapter-create', (req, res) => {
                 return res.status(500).json({ message: "Lỗi server" });
             }
             const storyName = result[0].name;
-            res.render('chapter/create', { storyId, storyName, chapterNumber });
+            res.render('chapter/create', { storyId, storyName, chapterNumber , layout: 'main', showHeader: true});
         });;
     });
 });
@@ -274,7 +275,7 @@ app.get('/chapter-show', (req, res) => {
                 return res.status(500).json({ message: "Lỗi server" });
             }
             storyName = result[0].name;
-            res.render('chapter/show', { chapterResult, storyName });
+            res.render('chapter/show', { chapterResult, storyName , layout: 'main', showHeader: true});
         });
     });
 })
@@ -291,7 +292,7 @@ app.get('/chapter-edit', (req, res) => {
         if (result.length === 0) {
             return res.status(404).json({ message: "Chương không tồn tại" });
         }
-        res.render('./chapter/edit', { chapter: result[0] });
+        res.render('./chapter/edit', { chapter: result[0] , layout: 'main', showHeader: true});
     });
 });
 
@@ -309,7 +310,19 @@ app.post('/chapter-edit', (req, res) => {
     });
 });
 
+const authController = require('./app/controllers/AuthController')
+const bcrypt = require('bcryptjs');
+const generateUserId = (userCount) => {
+    const userIdNumber = userCount + 1;
+    return `U${userIdNumber.toString().padStart(3, '0')}`;
+};
+
+app.get('/auth-login', authController.login_get)
+app.get('/auth-register', authController.register_get)
+app.post('/auth-login', authController.login_post)
+app.post('/auth-register', authController.register_post)
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
+

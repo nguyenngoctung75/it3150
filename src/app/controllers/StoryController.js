@@ -1,12 +1,12 @@
 class StoryController {
     // [Get /story]
     show(req, res) {
-        res.render('story/story')
+        res.render('story/story' , { layout: 'main', showHeader: true })
     }
 
     // [Get] /story/create
     create(req, res) {
-        res.render('story/create')
+        res.render('story/create' , { layout: 'main', showHeader: true })
     }
 
     store(req, res) {
